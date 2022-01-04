@@ -48,7 +48,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 
 > setwd("your working directory")#set your working directory
 > source("GenSig.modules1.b3.2.9.github.R")
-> 
+
 #####################################################################################
 ### Step1. Load GDSC drug response data, binary genomic features and feature redundancy files
 #####################################################################################
@@ -74,7 +74,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > dir.create(GDSC.gensigdir)
 > CCLE.gensigdir<-paste(resultdir,"/CCLE",sep="")
 > dir.create(CCLE.gensigdir)
-> 
+
 #####################################################################################
 ### Step3. Run weighted K-S test to assess the enrichment of genomic features
 ### in sensitive or resistant cell lines for a selected drug
@@ -91,13 +91,15 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > }
 > }
 > files.path<-paste(GDSC.testsetdir,test.files, sep="/")
+
 #perform weighted K-S tests for each permuted training/testing set
 > lapply(files.path,run.weightedKS.fileV2,drugData=GDSC.drugData,genotype.list=GDSC.genotype.list,outdir=GDSC.gensigdir)
+
 #perform weighted K-S tests for all GDSC cell line subjects as training set.
 > lapply(drug.vec,run.weightedKS.drugV2,drugData=GDSC.drugData,genotype.list=GDSC.genotype.list,outdir=GDSC.gensigdir)
+
 #the weighted KS tests use 2000 permutations to calculate NES scores thus the results could slightly vary between different runs
 #the weights calculated in our original study is in the folder: ./Results/GDSC.weights
-
 #####################################################################################
 ### Step4. Build iGenSig models based on the GDSC dataset.
 #####################################################################################
@@ -111,6 +113,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > GDSC.weightdir=GDSC.weightdir,# specify the folder containing the GDSC weight files
 > GDSC.gensigdir=GDSC.gensigdir,# specify the folder for GDSC output model files
 > q.cut=q.cut)
+
 #####################################################################################
 ### Step5. Apply GDSC iGenSig models to model CCLE drug response
 #####################################################################################
@@ -121,6 +124,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > GDSC.gensigdir=GDSC.gensigdir,
 > result.gensigdir=CCLE.gensigdir
 > )
+
 #benchmark modeling results based on GenSig.sensitive scores
 > batch.benchmarkGenSig(gensig.dir=CCLE.gensigdir,drugData=CCLE.drugData,dataset="CCLE") # response: the column name of drug response data, which should be either AUC or ActArea
 
@@ -139,6 +143,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > Trial.genotype.list=Trial.genotype.list,
 > Trial.preCalfile=Trial.preCalfile,
 > TCGA.catype.genotype.list=TCGA.catype.genotype.list)
+
 ## The model.GDSC2trial module can pre-calculate feature redundancy automatically
 
 ##################################################################################################################
@@ -155,7 +160,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > expData=data.frame(row.names = expData$Name,expData[,-1],stringsAsFactors = F, check.names = F)
 > outfilepath<-paste0(sub("(.*?).tsv", "\\1", expfile),".12levelFeatures.gmt",sep="")
 > binarize.expfeature(expData,outfilepath,sdpercfilter=0.2,sdlevels=-6:6,genomewide=TRUE)
-> 
+
 ### Step2. Extract pre-calculate feature redundancy for GDSC genomic features based on their co-ocurrance in the Pan-cancer TCGA dataset. 
 > Trial.genotype.list=read_gmt(outfilepath,min=1)
 > load("GenotypeData/TCGA.NSCLC.genotype.list.RData")
