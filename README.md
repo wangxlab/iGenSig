@@ -52,13 +52,13 @@ You can find annotation files containing the cell lines names of permutated GDSC
 #####################################################################################
 Step1. Load GDSC drug response data, binary genomic features and feature redundancy files
 #####################################################################################
-> GDSC.drugData<-read.delim("DrugResponseData/GDSC1_response.tsv",stringsAsFactors = F,check.names = F,header = T,sep="\t")
-> CCLE.drugData<-read.delim("DrugResponseData/CCLE_response.tsv",stringsAsFactors = F,check.names = F,header = T,sep="\t")
+> GDSC.drugData<-read.delim("DrugResponseData/GDSC1_response.tsv",stringsAsFactors = F,check.names = F,header = T,sep="\t")  
+> CCLE.drugData<-read.delim("DrugResponseData/CCLE_response.tsv",stringsAsFactors = F,check.names = F,header = T,sep="\t")  
 > drug.vec=c(1) #select the drug IDs for modeling. drug ID 1 is Erlotinib
-> load("GenotypeData/GDSC.genotype.list.RData")
-> load("GenotypeData/CCLE.genotype.list.RData")
-> GDSC.preCalfile="PrecalMatrixData/GDSC.12bins.preCal.RData"
-> CCLE.preCalfile="PrecalMatrixData/CCLE.12bins.preCal.RData"
+> load("GenotypeData/GDSC.genotype.list.RData")  
+> load("GenotypeData/CCLE.genotype.list.RData")  
+> GDSC.preCalfile="PrecalMatrixData/GDSC.12bins.preCal.RData"  
+> CCLE.preCalfile="PrecalMatrixData/CCLE.12bins.preCal.RData"  
 
 #####################################################################################
 Step2. Specify modeling parameters and create output directory.
