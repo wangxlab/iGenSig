@@ -68,6 +68,7 @@ Step2. Specify modeling parameters and create output directory.
 
 > parameters=list(q.cut=0.1,GDSC.testsetdir="TestsetAnnotationData")
 > list2env(parameters, .GlobalEnv)
+
 #Create result folders and save parameters
 > resultdir="Results";dir.create("Results")
 > GDSC.gensigdir<-paste(resultdir,"/GDSC",sep="")
@@ -160,7 +161,7 @@ This portion of code should be run before performing iGenSig modeling.
 
 ### Step2. Extract pre-calculate feature redundancy for GDSC genomic features based on their co-ocurrance in the Pan-cancer TCGA dataset. 
 
-> Trial.genotype.list=read_gmt(outfilepath,min=1)
+> Trial.genotype.list=read_gmt(outfilepath,min=1)</p>
 > load("GenotypeData/TCGA.NSCLC.genotype.list.RData")
 > Trial.preCalfile=paste0(sub(".gmt$","",outfilepath),".preCal.RData")
 > batch_calSimilarity_genolist(subject.genotype.list=Trial.genotype.list,REF.genotype.list=TCGA.catype.genotype.list,subject.preCalfile=Trial.preCalfile)
