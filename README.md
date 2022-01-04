@@ -141,11 +141,9 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > Trial.preCalfile=Trial.preCalfile,  
 > TCGA.catype.genotype.list=TCGA.catype.genotype.list)  
 
-# The model.GDSC2trial module can pre-calculate feature redundancy automatically
+#The model.GDSC2trial module can pre-calculate feature redundancy automatically
 
-##################################################################################################################
-## Extract binary genomic feature from gene expression data and pre-calculate feature redundancy. This portion of code should be run before performing iGenSig modeling.
-##################################################################################################################
+# Extract binary genomic feature from gene expression data and pre-calculate feature redundancy. This portion of code should be run before performing iGenSig modeling.
 
 ## Step 1. Extract binary gene expression features from non-log transformed expression data. Here we use the gene expression data from BATTLE trial dataset as example
 
