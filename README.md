@@ -161,7 +161,7 @@ This portion of code should be run before performing iGenSig modeling.
 
 ### Step2. Extract pre-calculate feature redundancy for GDSC genomic features based on their co-ocurrance in the Pan-cancer TCGA dataset. 
 
-> Trial.genotype.list=read_gmt(outfilepath,min=1)</p>
+> Trial.genotype.list=read_gmt(outfilepath,min=1)
 > load("GenotypeData/TCGA.NSCLC.genotype.list.RData")
 > Trial.preCalfile=paste0(sub(".gmt$","",outfilepath),".preCal.RData")
 > batch_calSimilarity_genolist(subject.genotype.list=Trial.genotype.list,REF.genotype.list=TCGA.catype.genotype.list,subject.preCalfile=Trial.preCalfile)
