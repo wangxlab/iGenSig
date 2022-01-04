@@ -43,14 +43,14 @@ You can find annotation files containing the cell lines names of permutated GDSC
 ## C. How to build iGenSig models based on GDSC dataset and predict the therapeutic response in CCLE cell lines and patient subjects in the BATTLE trial.
 
 * Find “iGenSig_example_script.R” file in your folder. This file contains the script to perform iGenSig modeling. 
-* 
+
 ## the iGenSig module has been tested on the latest R version 4.1.2
 
 > setwd("your working directory")#set your working directory
 > source("GenSig.modules1.b3.2.9.github.R")
 
 #####################################################################################
-### Step1. Load GDSC drug response data, binary genomic features and feature redundancy files
+Step1. Load GDSC drug response data, binary genomic features and feature redundancy files
 #####################################################################################
 > GDSC.drugData<-read.delim("DrugResponseData/GDSC1_response.tsv",stringsAsFactors = F,check.names = F,header = T,sep="\t")
 > CCLE.drugData<-read.delim("DrugResponseData/CCLE_response.tsv",stringsAsFactors = F,check.names = F,header = T,sep="\t")
@@ -61,7 +61,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > CCLE.preCalfile="PrecalMatrixData/CCLE.12bins.preCal.RData"
 
 #####################################################################################
-### Step2. Specify modeling parameters and create output directory.
+Step2. Specify modeling parameters and create output directory.
 #####################################################################################
 
 #Specify modeling parameters: the q.cut is the cutoff for feature selection, which can be adjusted for different drugs
@@ -76,8 +76,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > dir.create(CCLE.gensigdir)
 
 #####################################################################################
-### Step3. Run weighted K-S test to assess the enrichment of genomic features
-### in sensitive or resistant cell lines for a selected drug
+Step3. Run weighted K-S test to assess the enrichment of genomic features in sensitive or resistant cell lines for a selected drug
 #####################################################################################
 
 > test.files<-c()
@@ -101,7 +100,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 #the weighted KS tests use 2000 permutations to calculate NES scores thus the results could slightly vary between different runs
 #the weights calculated in our original study is in the folder: ./Results/GDSC.weights
 #####################################################################################
-### Step4. Build iGenSig models based on the GDSC dataset.
+Step4. Build iGenSig models based on the GDSC dataset.
 #####################################################################################
 
 > GDSC.weightdir="./Results/GDSC.weights"
@@ -115,7 +114,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > q.cut=q.cut)
 
 #####################################################################################
-### Step5. Apply GDSC iGenSig models to model CCLE drug response
+Step5. Apply GDSC iGenSig models to model CCLE drug response
 #####################################################################################
 > batchCalGenSig.validationset (
 > genotype.list=CCLE.genotype.list,
@@ -129,7 +128,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > batch.benchmarkGenSig(gensig.dir=CCLE.gensigdir,drugData=CCLE.drugData,dataset="CCLE") # response: the column name of drug response data, which should be either AUC or ActArea
 
 ###############################################################################################
-### Step6. Apply GDSC model to clinical trial dataset: BATTLE Trial Data as example
+Step6. Apply GDSC model to clinical trial dataset: BATTLE Trial Data as example
 ###############################################################################################
 
 > Trial.drug=c(1)
@@ -147,13 +146,11 @@ You can find annotation files containing the cell lines names of permutated GDSC
 ## The model.GDSC2trial module can pre-calculate feature redundancy automatically
 
 ##################################################################################################################
-## Extract binary genomic feature from gene expression data and pre-calculate feature redundancy.
-## Here we use BATTLE trial dataset as example. This portion of code should be run before performing iGenSig modeling.
+Extract binary genomic feature from gene expression data and pre-calculate feature redundancy.
+This portion of code should be run before performing iGenSig modeling.
 ##################################################################################################################
 
-### Step 1. Extract binary gene expression features from non-log transformed expression data
-
-##Here we use the gene expression data from BATTLE trial dataset as example
+### Step 1. Extract binary gene expression features from non-log transformed expression data. Here we use the gene expression data from BATTLE trial dataset as example
 
 > expfile="ExpressionData/BATTLE_GSE33072_ENSG_EXP_unlog.tsv"
 > expData<-fread(expfile,stringsAsFactors = F, check.names = F,header = T,sep="\t")
@@ -162,6 +159,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 > binarize.expfeature(expData,outfilepath,sdpercfilter=0.2,sdlevels=-6:6,genomewide=TRUE)
 
 ### Step2. Extract pre-calculate feature redundancy for GDSC genomic features based on their co-ocurrance in the Pan-cancer TCGA dataset. 
+
 > Trial.genotype.list=read_gmt(outfilepath,min=1)
 > load("GenotypeData/TCGA.NSCLC.genotype.list.RData")
 > Trial.preCalfile=paste0(sub(".gmt$","",outfilepath),".preCal.RData")
