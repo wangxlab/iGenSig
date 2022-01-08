@@ -39,13 +39,13 @@ files.path<-paste(GDSC.testsetdir,test.files, sep="/")
 #perform weighted K-S tests for each permuted training/testing set
 lapply(files.path,run.weightedKS.fileV2,drugData=GDSC.drugData,genotype.list=GDSC.genotype.list,outdir=GDSC.gensigdir)
 #perform weighted K-S tests for all GDSC cell line subjects as training set.
-lapply(drug.vec,run.weightedKS.drugV2,drugData=GDSC.drugData,genotype.list=GDSC.genotype.list,outdir=GDSC.gensigdir)
+lapply(drugID.call=drug.vec,run.weightedKS.drugV2,drugData=GDSC.drugData,genotype.list=GDSC.genotype.list,outdir=GDSC.gensigdir)
 #the weighted KS tests use 2000 permutations to calculate NES scores thus the results could slightly vary between different runs
 #the weights calculated in our original study is in the folder: ./Results/GDSC.weights
 #####################################################################################
 ### Step4. Build iGenSig models based on the GDSC dataset.
 #####################################################################################
-GDSC.weightdir="./Results/GDSC.weights"
+GDSC.weightdir="./Results/GDSC"
 batchCalGenSig.GDSC(GDSC.genotype.list=GDSC.genotype.list,
                     GDSC.preCalfile=GDSC.preCalfile,
                     drug.vec=drug.vec,
