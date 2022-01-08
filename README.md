@@ -61,8 +61,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 
 * Here, we start running iGenSig.
 
-> setwd("your working directory")#set your working directory
->
+> setwd("your working directory")   #set your working directory
 > source("GenSig.modules1.b3.2.9.github.R")
 > 
 #####################################################################################
