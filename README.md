@@ -43,11 +43,12 @@ You can find annotation files containing the cell lines names of permutated GDSC
 
 ## C. Installing R packages
 
-•	Find "  " and see line 2. There is the list of R packages you may have to install unless you did. 
+•	Find "GenSig.modules1.b3.2.9.github.R" file in your folder and see line 2. There is the list of R packages you may have to install unless you did. 
 
 •	If you haven't installed any R pacakges below, it will take about 1 hour. 
 
 > packages=c("preprocessCore","pROC","ggplot2","gridExtra","grid","ggpubr","scales","stringr","qvalue","vegan","stringr","tidyverse","pROC","survival","readr","gdata","DescTools","moments","fastcluster","Rfast","dynamicTreeCut","data.table","plyr","dplyr")
+> sapply(packages,require,character=TRUE)
 
 
 ## D. How to build iGenSig models based on GDSC dataset and predict the therapeutic response in CCLE cell lines and patient subjects in the BATTLE trial.
@@ -181,11 +182,18 @@ You can find annotation files containing the cell lines names of permutated GDSC
 * Please find "./Results/CCLE/benchmark.genSig.result.xls" file. The file has the summary of the tested drug name and prediction performance AUROC. 
 
 drugID	drugName	permuID	AUC
+
 1	Erlotinib	1	0.81921521
+
 1	Erlotinib	2	0.810962783
+
 1	Erlotinib	3	0.814886731
+
 1	Erlotinib	4	0.809385113
+
 1	Erlotinib	5	0.808616505
+
+
 
 
 
