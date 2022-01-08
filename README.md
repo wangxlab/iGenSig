@@ -54,7 +54,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 ## D. How to build iGenSig models based on GDSC dataset and predict the therapeutic response in CCLE cell lines and patient subjects in the BATTLE trial.
 
 * Find “iGenSig_example_script.R” file in your folder. This file contains the script to perform iGenSig modeling. 
-* 
+
 ## the iGenSig module has been tested on the latest R version 4.1.2 with Windows 10 computer Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz, 32 GB RAM. 
 
 ## Total running time on Windows 10 was ~ 1 hour 20 minutes. It can vary according to your computer's spec.
