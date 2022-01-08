@@ -2,50 +2,50 @@
 
 ## An integral genomic signature approach for tailored cancer therapy using genome-wide sequencing data
 
-ï	The current version of iGenSig is beta 3.2.9 (Jan 1st, 2022). 
+‚Ä¢	The current version of iGenSig is beta 3.2.9 (Jan 1st, 2022). 
 
-ï	The iGenSig was built on R version 4.1.2 and tested on Linux and Windows environment. 
+‚Ä¢	The iGenSig was built on R version 4.1.2 and tested on Linux and Windows environment. 
 
 ## A. Introduction
 
-ï	Here we developed an integral genomic signature (iGenSig) analysis as a new class of transparent, interpretable, and resilient modeling methods for big data-based precision medicine with improved cross-dataset applicability and tolerance to sequencing bias. 
+‚Ä¢	Here we developed an integral genomic signature (iGenSig) analysis as a new class of transparent, interpretable, and resilient modeling methods for big data-based precision medicine with improved cross-dataset applicability and tolerance to sequencing bias. 
 
-ï	We define genomic features that significantly correlate with a clinical phenotype (such as therapeutic response) as genomic correlates, and an integral genomic signature as the integral set of redundant genomic correlates for a given clinical phenotype such as therapeutic response.
+‚Ä¢	We define genomic features that significantly correlate with a clinical phenotype (such as therapeutic response) as genomic correlates, and an integral genomic signature as the integral set of redundant genomic correlates for a given clinical phenotype such as therapeutic response.
 
-ï	We postulate that the redundant genomic features, which are usually eliminated through dimensionality reduction or feature removal  during multi-omics modeling, may help overcome the sequencing bias. 
+‚Ä¢	We postulate that the redundant genomic features, which are usually eliminated through dimensionality reduction or feature removal  during multi-omics modeling, may help overcome the sequencing bias. 
 
-ï	Using genomic dataset for chemical perturbations, we developed the iGenSig models predicting cancer cell responses to targeted-therapy agents and tested the cross-dataset performance of selected models based on independent multi-omics datasets for cancer cell lines and cancer patients assessing their therapeutic responses.
+‚Ä¢	Using genomic dataset for chemical perturbations, we developed the iGenSig models predicting cancer cell responses to targeted-therapy agents and tested the cross-dataset performance of selected models based on independent multi-omics datasets for cancer cell lines and cancer patients assessing their therapeutic responses.
 
 ## B. How to download R code and data files to run iGenSig
 
-ï If you use linux environment, download all files to your local directory. 
+‚Ä¢ If you use linux environment, download all files to your local directory. 
 
 $ git clone https://github.com/wangxlab/iGenSig
 
 If you have downloaded all necessary data files, you can find these 4 directories; 
 
-1	ì./DrugResponseDataî directory
+1	‚Äú./DrugResponseData‚Äù directory
 
 You can find drug response data files (.tsv file) of 2 datasets (GDSC1 and CCLE).
 
-2	ì./GenotypeDataî directory
+2	‚Äú./GenotypeData‚Äù directory
 
 You can find genotype data files (.gmt files) of 4 datasets (GDSC,CCLE,BATTLE, and TCGA NSCLC).
 
-3	ì./PrecalMatrixDataî directory
+3	‚Äú./PrecalMatrixData‚Äù directory
 
 You can find precalculated feature redundancy data files (.RData files) of 3 datasets (GDSC,CCLE,BATTLE). 
 
-4	ì./TestsetAnnotationDataî directory
+4	‚Äú./TestsetAnnotationData‚Äù directory
 
 You can find annotation files containing the cell lines names of permutated GDSC test sets for drug ID 1 (.txt file). 
 
 
 ## C. Installing R packages
 
-ï	Find "GenSig.modules1.b3.2.9.github.R" file in your folder and see line 2. There is the list of R packages you may have to install unless you did. 
+‚Ä¢	Find "GenSig.modules1.b3.2.9.github.R" file in your folder and see line 2. There is the list of R packages you may have to install unless you did. 
 
-ï	If you haven't installed any R pacakges below, it will take about 1 hour. 
+‚Ä¢	If you haven't installed any R pacakges below, it will take about 1 hour. 
 
 > packages=c("preprocessCore","pROC","ggplot2","gridExtra","grid","ggpubr","scales","stringr","qvalue","vegan","stringr","tidyverse","pROC","survival","readr","gdata","DescTools","moments","fastcluster","Rfast","dynamicTreeCut","data.table","plyr","dplyr")
 > sapply(packages,require,character=TRUE)
@@ -53,7 +53,7 @@ You can find annotation files containing the cell lines names of permutated GDSC
 
 ## D. How to build iGenSig models based on GDSC dataset and predict the therapeutic response in CCLE cell lines and patient subjects in the BATTLE trial.
 
-* Find ìiGenSig_example_script.Rî file in your folder. This file contains the script to perform iGenSig modeling. 
+* Find ‚ÄúiGenSig_example_script.R‚Äù file in your folder. This file contains the script to perform iGenSig modeling. 
 * 
 ## the iGenSig module has been tested on the latest R version 4.1.2 with Windows 10 computer Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz, 32 GB RAM. 
 
@@ -194,6 +194,7 @@ drugID	drugName	permuID	AUC
 1	Erlotinib	5	0.808616505
 
 
+![image](https://user-images.githubusercontent.com/35302520/148622570-6c33038c-fe49-4bfe-b0d1-9c79a528fac0.png)
 
 
 
