@@ -181,18 +181,6 @@ You can find annotation files containing the cell lines names of permutated GDSC
 
 * Please find "./Results/CCLE/benchmark.genSig.result.xls" file. The file has the summary of the tested drug name and prediction performance AUROC. 
 
-drugID	drugName	permuID	AUC
-
-1	Erlotinib	1	0.81921521
-
-1	Erlotinib	2	0.810962783
-
-1	Erlotinib	3	0.814886731
-
-1	Erlotinib	4	0.809385113
-
-1	Erlotinib	5	0.808616505
-
 
 ![image](https://user-images.githubusercontent.com/35302520/148622570-6c33038c-fe49-4bfe-b0d1-9c79a528fac0.png)
 
