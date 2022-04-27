@@ -1,5 +1,5 @@
 #general functions
-packages=c("preprocessCore","pROC","ggplot2","gridExtra","grid","ggpubr","scales","stringr","qvalue","vegan","stringr","tidyverse","pROC","survival","readr","gdata","DescTools","moments","fastcluster","Rfast","dynamicTreeCut","data.table","plyr","dplyr")
+packages=c("preprocessCore","pROC","pheatmap","ggplot2","gridExtra","grid","ggpubr","scales","stringr","qvalue","vegan","stringr","tidyverse","pROC","survival","readr","gdata","DescTools","moments","fastcluster","Rfast","dynamicTreeCut","data.table","plyr","dplyr")
 sapply(packages,require,character=TRUE)
 #####################################################################################
 ###General Modules
@@ -650,7 +650,7 @@ model.GDSC2trial<-function (GDSC.gensigdir,Trial.gensigdir,Trial.drug,Trial.geno
   log.dir=paste0(Trial.gensigdir,"/",cutTree.method,dynamic.method,"MinSize",minClusterSize,"Depth",as.integer(cutTree.depth))
   dir.create(log.dir)
   if (!file.exists(Trial.preCalfile)){
-    batch_calSimilarity_genolist(subject.genotype.list=Trial.genotype.list,REF.genotype.list=TCGA.catype.genotype.list,subject.preCalfile=Trial.preCalfile,by.cluster=by.cluster,cutTree.method=cutTree.method,dynamic.method=dynamic.method,minClusterSize=minClusterSize,split.depth=cutTree.depth,log.dir=log.dir,visualize.cluter=T)
+    batch_calSimilarity_genolist(subject.genotype.list=Trial.genotype.list,REF.genotype.list=TCGA.catype.genotype.list,subject.preCalfile=Trial.preCalfile,by.cluster=by.cluster,cutTree.method=cutTree.method,dynamic.method=dynamic.method,minClusterSize=minClusterSize,split.depth=cutTree.depth,log.dir=log.dir,visualize.cluter=F)
   }
   if (calGenSig==T){
     batchCalGenSig.validationset (
