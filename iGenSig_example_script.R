@@ -45,7 +45,7 @@ lapply(drug.vec,run.weightedKS.drugV2,drugData=GDSC.drugData,genotype.list=GDSC.
 #####################################################################################
 ### Step4. Build iGenSig models based on the GDSC dataset.
 #####################################################################################
-GDSC.weightdir="./Results/GDSC.weights"
+GDSC.weightdir="./Results/GDSC" #please specify the folder where the weight files based on GDSC dataset are located (i.e., weightTransf_NES_drugID_1.resistant.xls).
 batchCalGenSig.GDSC(GDSC.genotype.list=GDSC.genotype.list,
                     GDSC.preCalfile=GDSC.preCalfile,
                     drug.vec=drug.vec,
@@ -99,7 +99,8 @@ model.GDSC2trial(GDSC.gensigdir=GDSC.gensigdir,
 
 # plot sensitive iGenSig scores with patient treatment and outcome
 library(ggplot2)
-GenSig=read.delim("Results/CIT/weightTransf_NES_drugID_179_genSig.xls",row.names = 1, stringsAsFactors = F,check.names = F,header = T,sep="\t")
+GenSig.file="Results/CIT/weightTransf_NES_drugID_179_genSig.xls"
+GenSig=read.delim(GenSig.file,row.names = 1, stringsAsFactors = F,check.names = F,header = T,sep="\t")
 Trial.phenoData=read.delim("DrugResponseData/CIT_GSE39582_clinData.tsv",stringsAsFactors = F,check.names = F,header = T,sep="\t")
 Trial.phenoData=Trial.phenoData[Trial.phenoData$`chemotherapy.adjuvant:ch1`!="N/A" & Trial.phenoData$`os.event:ch1`!="N/A",]
 Trial.phenoData$groups=paste(ifelse(Trial.phenoData$`chemotherapy.adjuvant:ch1`=="Y","Adjuvant","Untreated"),
