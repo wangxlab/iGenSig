@@ -1,6 +1,6 @@
 # How to use iGenSig R modules to build multi-omics models for predicting therapeutic responses based on GDSC dataset
 
-## An integral genomic signature approach for tailored cancer therapy using genome-wide sequencing data
+## PLEASE CITE: Wang XS#, Lee S, Zhang H, Tang G, Wang Y. An integral genomic signature approach for tailored cancer therapy using genome-wide sequencing data. Nature Communications. 2022 13(1):2936. https://doi.org/10.1038/s41467-022-30449-7
 
 •	The current version of iGenSig is beta 3.2.9 (Jan 1st, 2022). 
 
